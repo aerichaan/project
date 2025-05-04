@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Catalog - BookVault</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar container">
+            <div class="logo">
+                <a href="index.html">BookVault</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html" class="active">Catalog</a></li>
+                <li><a href="admin-login.html" class="admin-link">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="catalog-main">
+        <section class="catalog-header container">
+            <h1>Book Catalog</h1>
+            <div class="search-container">
+                <div class="search-input-container">
+                    <input type="text" id="searchInput" placeholder="Search by title, author, or genre...">
+                    <button id="searchButton" class="btn primary-btn">Search</button>
+                </div>
+                <div class="filter-controls">
+                    <button id="filterReset" class="btn secondary-btn">Reset Filters</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-content container">
+            <div id="loading" class="loading-container">
+                <div class="loading-spinner"></div>
+                <p>Loading books...</p>
+            </div>
+            
+            <div id="errorMessage" class="error-message hidden"></div>
+            
+            <div id="booksContainer" class="books-grid"></div>
+            
+            <!-- Pagination Controls -->
+            <div class="pagination-controls" id="paginationControls" class="hidden"> <!-- Start hidden -->
+                <span id="pageInfo">Page 1 of 1</span>
+                <button id="prevPageBtn" class="btn secondary-btn" disabled>&laquo; Previous</button>
+                <button id="nextPageBtn" class="btn secondary-btn" disabled>Next &raquo;</button>
+            </div>
+            <!-- End Pagination Controls -->
+
+            <div id="noResults" class="no-results hidden">
+                <h3>No books found</h3>
+                <p>Try adjusting your search terms or clearing filters.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 BookVault. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/catalog.js"></script>
+</body>
+</html>
